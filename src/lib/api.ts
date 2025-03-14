@@ -14,6 +14,7 @@ export async function handleApiResponse<T>(response: Response): Promise<T> {
 /**
  * Creates a FormData object from a record
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function createFormData(data: Record<string, any>): FormData {
   const formData = new FormData();
 

@@ -3,7 +3,7 @@ import { Lead, LeadStatus, VisaCategory } from "@/types";
 import { v4 as uuidv4 } from "uuid";
 
 // Mock database for leads - in a real app, this would be a database connection
-let LEADS_DB: Lead[] = [
+const LEADS_DB: Lead[] = [
   {
     id: "1",
     firstName: "Jorge",
@@ -129,6 +129,7 @@ let LEADS_DB: Lead[] = [
 
 // GET handler to retrieve all leads
 export async function GET(request: NextRequest) {
+  console.log(request);
   // In a real app, you might filter by user access, sort, paginate, etc.
   return NextResponse.json({ success: true, data: LEADS_DB });
 }
@@ -170,6 +171,7 @@ export async function POST(request: NextRequest) {
     try {
       visaCategories = JSON.parse(visaCategoriesRaw) as VisaCategory[];
     } catch (error) {
+      console.log(error);
       return NextResponse.json(
         { success: false, error: "Invalid visa categories format" },
         { status: 400 }

@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import LeadsList from "@/components/admin/LeadsList";
-import { useRouter } from "next/navigation";
 
 // Mock authentication
 const checkAuth = () => {
@@ -20,7 +19,6 @@ export default function AdminPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const router = useRouter();
 
   useEffect(() => {
     // Check authentication status
